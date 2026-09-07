@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>BLOG POSTS</title>
 
-<h1>Blog Post #1 - September 8,2026</h1>
-<h2>In Defense of the Poor Image by Hito Steyerl, 2011</h2>
-</body> This is where I will put my reflection</body>
-<h2> An Account of Peach Blossom Spring</h2>
-</body> This is where I will put my reflection</body>
+<head>
+    <title>Blog</title>
+</head>
+
+<body>
+
+    <h1>My Blog</h1>
+
+    <h2>Blog #1</h2>
+
+    <p>September 8, 2026</p>
+
+    <a href="post1.html">Read More</a>
+
+    <br><br>
+
+    <a href="index.html">Back Home</a>
+
+</body>
+
+</html>
