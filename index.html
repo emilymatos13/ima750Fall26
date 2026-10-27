@@ -1,109 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Silent Letters</title>
   <style>
-    body {
-      margin: 0;
-      padding: 32px 16px;
-      background: #f4f0e7;
-      color: #222;
-      font-family: Georgia, serif;
-      text-align: center;
-    }
+body {
+  background-image: url('background.png');
+background-repeat: repeat;
+  background-size: 25%;
 
-    h1 {
-      margin: 0 0 24px;
-      font-size: 2rem;
-      font-weight: normal;
-    }
+  }
+</style>
+<style>
+body{
+margin:auto;
+width:80%;
+text-align:center;
+  align-content: center;
+}
+body {
+  background-color: purple;
+}
+</style>
+<body>
 
-    #page {
-      display: block;
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 72vh;
-      margin: 0 auto 16px;
-      box-shadow: 0 2px 8px #0002;
-    }
+    <header>
+<h1 style="color: Magenta;">Emily Matos IMA750 </h1>
+<h2 style="color: Magenta;">Artist, Producer, Maker of Stuff</h2>
 
-    .controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 18px;
-    }
+    </header>
 
-    button {
-      padding: 8px 14px;
-      background: transparent;
-      border: 1px solid #333;
-      color: #222;
-      font: inherit;
-      cursor: pointer;
-    }
-
-    button:disabled {
-      opacity: 0.35;
-      cursor: default;
-    }
-
-    #counter {
-      min-width: 64px;
-      font-size: 0.95rem;
-    }
-  </style>
+    <div class="buttons">
+        <style>
+.button {
+  background-color: Plum;
+  border: none;
+  color: magenta;
+  padding: 15px 32px;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
-  <h1>Silent Letters</h1>
 
-  <img id="page" src="images/page-01.png" alt="Zine page 1 of 3">
+<div class="btn-group">
+   <a href="Blog.html" class="button">
+            BLOG
+        </a>
 
-  <div class="controls">
-    <button id="previous" type="button" disabled>← Previous</button>
-    <span id="counter">1 / 3</span>
-    <button id="next" type="button">Next →</button>
-  </div>
-
-  <script>
-    const pages = [
-      "images/page-01.png",
-      "images/page-02.png",
-      "images/page-03.png"
-    ];
-
-    let currentPage = 0;
-    const image = document.getElementById("page");
-    const counter = document.getElementById("counter");
-    const previous = document.getElementById("previous");
-    const next = document.getElementById("next");
-
-    function showPage() {
-      image.src = pages[currentPage];
-      image.alt = `Zine page ${currentPage + 1} of ${pages.length}`;
-      counter.textContent = `${currentPage + 1} / ${pages.length}`;
-      previous.disabled = currentPage === 0;
-      next.disabled = currentPage === pages.length - 1;
-    }
-
-    previous.addEventListener("click", () => {
-      if (currentPage > 0) currentPage--;
-      showPage();
-    });
-
-    next.addEventListener("click", () => {
-      if (currentPage < pages.length - 1) currentPage++;
-      showPage();
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowLeft" && currentPage > 0) currentPage--;
-      if (event.key === "ArrowRight" && currentPage < pages.length - 1) currentPage++;
-      showPage();
-    });
-  </script>
+        <a href="Assignments.html" class="button">
+          ASSIGNMENTS
+        </a>
+</div>
 </body>
 </html>
