@@ -1,31 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <style>
-
-       <a style="color: Magenta;" href="Assignments.html">← Back to Assignments</a>
- <!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo Flip Slideshow</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poem in October for June's Pain</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px 16px;
+      background: #f4f0e7;
+      color: #222;
+      font-family: Georgia, serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-size: 2rem;
+      font-weight: normal;
+    }
+
+    #page {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 72vh;
+      margin: 0 auto 16px;
+      box-shadow: 0 2px 8px #0002;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+    }
+
+    button {
+      padding: 8px 14px;
+      background: transparent;
+      border: 1px solid #333;
+      color: #222;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+
+    #counter {
+      min-width: 64px;
+      font-size: 0.95rem;
+    }
+  </style>
 </head>
 <body>
+  <h1>A Poem in October for June's Pain</h1>
 
-  <div class="slider-container">
-    <div class="slides">
-      <img class="slide" src="poempage1.png" alt="Photo 1">
-      <img class="slide" src="poempage2.png" alt="Photo 2">
-      <img class="slide" src="poempage3.png" alt="Photo 3">
-    </div>
-    
-    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+  <img id="page" src="images/page-01.png" alt="Zine page 1 of 3">
+
+  <div class="controls">
+    <button id="previous" type="button" disabled>← Previous</button>
+    <span id="counter">1 / 3</span>
+    <button id="next" type="button">Next →</button>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const pages = [
+      "poempage1.png",
+      "poempage2.png",
+      "poempage3.png"
+    ];
+
+    let currentPage = 0;
+    const image = document.getElementById("page");
+    const counter = document.getElementById("counter");
+    const previous = document.getElementById("previous");
+    const next = document.getElementById("next");
+
+    function showPage() {
+      image.src = pages[currentPage];
+      image.alt = `Zine page ${currentPage + 1} of ${pages.length}`;
+      counter.textContent = `${currentPage + 1} / ${pages.length}`;
+      previous.disabled = currentPage === 0;
+      next.disabled = currentPage === pages.length - 1;
+    }
+
+    previous.addEventListener("click", () => {
+      if (currentPage > 0) currentPage--;
+      showPage();
+    });
+
+    next.addEventListener("click", () => {
+      if (currentPage < pages.length - 1) currentPage++;
+      showPage();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft" && currentPage > 0) currentPage--;
+      if (event.key === "ArrowRight" && currentPage < pages.length - 1) currentPage++;
+      showPage();
+    });
+  </script>
 </body>
 </html>
-   
